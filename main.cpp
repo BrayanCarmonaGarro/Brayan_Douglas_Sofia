@@ -11,6 +11,6 @@ int main()
 	vector<string> pilots;
 	vector<int> points;
 	Score score;
-	score.score(pilots, points, "pilotos_clasificaciones.txt");
+	score.pilotsScore(pilots, points, "pilotos_clasificaciones.txt");
 	score.showScore(pilots, points);
 }

@@ -14,7 +14,7 @@ int Score::calculatePunctuation(const vector<int>& positions)
 }
 
 
-void Score::score(vector<string>& pilots, vector<int>& points, string fileName)
+void Score::pilotsScore(vector<string>& pilots, vector<int>& points, string fileName)
 {
 	ifstream fich(fileName);
 	if (!fich.is_open())
@@ -25,7 +25,7 @@ void Score::score(vector<string>& pilots, vector<int>& points, string fileName)
 
 	string n_carreras;
 	getline(fich, n_carreras);
-	int num_carreras = atoi(n_carreras.c_str());
+	int racesNumber = atoi(n_carreras.c_str());
 	string pilotsQuantity;
 	getline(fich, pilotsQuantity);
 	int num_pilotos = atoi(pilotsQuantity.c_str());
@@ -43,25 +43,29 @@ void Score::score(vector<string>& pilots, vector<int>& points, string fileName)
 		int position;
 		string s_puestos;
 		getline(fich, s_puestos);
-		for (int j = 0; j < num_carreras; j++)
+		for (int j = 0; j < racesNumber; j++)
 		{
 			int pos = 0;
-			while (pos = s_puestos.find(";") != string::npos) {
-				if (pos == string::npos) {
-					pos = s_puestos.find(";");
-				}
-				if (pos != string::npos) {
-					position = atoi(s_puestos.substr(0, pos).c_str());
-					s_puestos.erase(0, pos + 1);
-					positions.push_back(position);
-				}
-			}
+			evaluatePositions(pos, s_puestos, position, positions);
 		}
 		points.push_back(calculatePunctuation(positions));
 	}
 	fich.close();
 }
 
+void Score::evaluatePositions(int& pos, std::string& s_puestos, int& position, std::vector<int>& positions)
+{
+	while (pos = s_puestos.find(";") != string::npos) {
+		if (pos == string::npos) {
+			pos = s_puestos.find(";");
+		}
+		if (pos != string::npos) {
+			position = atoi(s_puestos.substr(0, pos).c_str());
+			s_puestos.erase(0, pos + 1);
+			positions.push_back(position);
+		}
+	}
+}
 
 void Score::showScore(const vector<string>& pilots, const vector<int>& points)
 {
