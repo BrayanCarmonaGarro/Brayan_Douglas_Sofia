@@ -75,3 +75,27 @@ void Score::showScore(const vector<string>& pilots, const vector<int>& points)
 	}
 	cout << endl << endl;
 }
+
+void Score::saveData(vector<string>pilots, vector<int> points) {
+	fstream myFile;
+
+	string name;
+	myFile.open("resultFile.txt");
+	if (myFile.is_open()) {
+		int pos = 0;
+		for (int i = 0; i < pilots.size(); i++) {
+
+			pos = pilots[i].find(" ");
+			name += pilots[i].substr(0, pos).c_str();
+			pilots[i].erase(0, pos + 1);
+			name += ",";
+			name += pilots[i];
+
+			myFile << name << "," << points[i] << endl;
+			name.clear();
+		}
+		myFile.close();
+	}
+
+
+}

@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+
 int main()
 {
 	vector<string> pilots;
@@ -13,4 +15,8 @@ int main()
 	Score score;
 	score.pilotsScore(pilots, points, "pilotos_clasificaciones.txt");
 	score.showScore(pilots, points);
+	score.saveData(pilots, points);
+
 }
+
+

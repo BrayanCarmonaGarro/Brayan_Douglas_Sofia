@@ -13,7 +13,8 @@ private:
 public:
 	int calculatePunctuation(const vector<int>&);
 	void pilotsScore(vector<string>&, vector<int>&, string);
-	void evaluatePositions(int& pos, std::string& s_puestos, int& position, std::vector<int>& positions);
+	void evaluatePositions(int&, std::string&, int&, std::vector<int>&);
 	void showScore(const vector<string>&, const vector<int>&);
+	void saveData(vector<string>, vector<int>);
 };
 
