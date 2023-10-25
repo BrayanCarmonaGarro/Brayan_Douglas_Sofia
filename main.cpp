@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+
 int main()
 {
 	vector<string> pilots;
@@ -22,4 +24,8 @@ int main()
 		cout << "\nUnknown error";
 	}
 	score.showScore(pilots, points);
+	score.saveData(pilots, points);
+
 }
+
+
