@@ -9,11 +9,12 @@ using namespace std;
 class Score
 {
 private:
-
+	const int ERROR_OPEN_FILE = 1;
 public:
 	int calculatePunctuation(const vector<int>&);
 	void pilotsScore(vector<string>&, vector<int>&, string);
 	void evaluatePositions(int& pos, std::string& s_puestos, int& position, std::vector<int>& positions);
 	void showScore(const vector<string>&, const vector<int>&);
+	int getErrorOpenFile();
 };
 

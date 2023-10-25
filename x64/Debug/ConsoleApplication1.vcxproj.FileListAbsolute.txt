@@ -1,2 +1,3 @@
 C:\Users\byvma\OneDrive\OneDrive - Universidad Nacional de Costa Rica\Documentos\practiceMixedFiles\ejemplo 2 - archvios mixtos\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
 C:\Users\byvma\OneDrive\OneDrive - Universidad Nacional de Costa Rica\Documentos\Sofia_Brayan_Douglas\Brayan_Douglas_Sofia\x64\Debug\ConsoleApplication1.exe
+C:\Users\Sofia Bejarano Mora\Documents\GitHub\Bryan,duoglas,sofia\Brayan_Douglas_Sofia\x64\Debug\ConsoleApplication1.exe

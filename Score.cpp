@@ -19,8 +19,7 @@ void Score::pilotsScore(vector<string>& pilots, vector<int>& points, string file
 	ifstream fich(fileName);
 	if (!fich.is_open())
 	{
-		cout << "Couldnt open the file " << fileName << "\n";
-		exit(EXIT_FAILURE);
+		throw ERROR_OPEN_FILE;
 	}
 
 	string n_carreras;
@@ -56,9 +55,6 @@ void Score::pilotsScore(vector<string>& pilots, vector<int>& points, string file
 void Score::evaluatePositions(int& pos, std::string& s_puestos, int& position, std::vector<int>& positions)
 {
 	while (pos = s_puestos.find(";") != string::npos) {
-		if (pos == string::npos) {
-			pos = s_puestos.find(";");
-		}
 		if (pos != string::npos) {
 			position = atoi(s_puestos.substr(0, pos).c_str());
 			s_puestos.erase(0, pos + 1);
@@ -74,4 +70,9 @@ void Score::showScore(const vector<string>& pilots, const vector<int>& points)
 		cout << pilots[i] << ":" << points[i] << endl;
 	}
 	cout << endl << endl;
+}
+
+int Score::getErrorOpenFile()
+{
+	return ERROR_OPEN_FILE;
 }

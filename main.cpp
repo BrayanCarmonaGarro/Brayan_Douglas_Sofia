@@ -11,6 +11,15 @@ int main()
 	vector<string> pilots;
 	vector<int> points;
 	Score score;
-	score.pilotsScore(pilots, points, "pilotos_clasificaciones.txt");
+	try {
+		score.pilotsScore(pilots, points, "pilotos_clasificaciones.txt");
+	}
+	catch (int exceptionId) {
+		if (score.getErrorOpenFile() == 1) {
+			cout << "Error opening scores file" << "\n";
+			exit(EXIT_FAILURE);
+		}
+		cout << "\nUnknown error";
+	}
 	score.showScore(pilots, points);
 }
